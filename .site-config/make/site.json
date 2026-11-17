@@ -1,1 +1,11 @@
-{}
+{
+  "title": "Forma — Good things. For everyday.",
+  "description": "Thoughtfully designed objects for the way you live. Less clutter. More meaning. Made to stay.",
+  "language": "en",
+  "robots": {
+    "index": true
+  },
+  "accessibility": {
+    "addBypassLinks": true
+  }
+}
