@@ -1,4 +1,4 @@
-import rawSiteSettings from '../../.figma/make/site.json'
+import rawSiteSettings from '../../.site-config/make/site.json'
 
 export type MakeSiteSettings = {
   title?: string
