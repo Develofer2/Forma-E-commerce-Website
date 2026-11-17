@@ -1,0 +1,14 @@
+{
+  "name": "Forma — Good things. For everyday.",
+  "short_name": "Forma",
+  "description": "Thoughtfully designed objects, saved favorites, and a bag that stays with you — even offline.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fdfdfb",
+  "theme_color": "#315847",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

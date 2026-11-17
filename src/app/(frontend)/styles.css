@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/dm-sans-400.ttf") format("truetype"); }
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 500; font-display: swap; src: url("/fonts/dm-sans-500.ttf") format("truetype"); }
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 600; font-display: swap; src: url("/fonts/dm-sans-600.ttf") format("truetype"); }
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/dm-sans-700.ttf") format("truetype"); }
+@font-face { font-family: "DM Serif Display"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/dm-serif-normal.ttf") format("truetype"); }
+@font-face { font-family: "DM Serif Display"; font-style: italic; font-weight: 400; font-display: swap; src: url("/fonts/dm-serif-italic.ttf") format("truetype"); }
+
+@theme {
+  --font-sans: "DM Sans", sans-serif;
+  --font-editorial: "DM Serif Display", Georgia, serif;
+  --color-paper: #fdfdfb;
+  --color-surface: #f0f0e9;
+  --color-ink: #292e29;
+  --color-muted: #73776d;
+  --color-line: #e3e5dd;
+  --color-forest: #315847;
+  --color-forest-dark: #244536;
+  --color-on-forest: #ffffff;
+  --color-soft-green: #eaf0e7;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.dark {
+  --color-paper: #1d2420;
+  --color-surface: #2b332d;
+  --color-ink: #edf0e9;
+  --color-muted: #b1baae;
+  --color-line: #3d473f;
+  --color-forest: #8bb697;
+  --color-forest-dark: #9cc7a7;
+  --color-on-forest: #18271d;
+  --color-soft-green: #27382c;
+  color-scheme: dark;
+}
+
+:root { --store-safe-top: env(safe-area-inset-top, 0px); }
+@media (width < 48rem) {
+  :root { --store-safe-top: max(calc(var(--spacing) * 10), env(safe-area-inset-top, 0px)); }
+}
+html { scroll-behavior: smooth; }
+body { margin: 0; padding-top: var(--store-safe-top); font-family: var(--font-sans); }
+/* Keep the notch area clear even when the navigation sticks during scrolling. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: var(--store-safe-top);
+  background: var(--color-paper);
+  z-index: 50;
+  pointer-events: none;
+}
+html, body, #root, #root * { scrollbar-width: none; }
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+#root::-webkit-scrollbar,
+#root *::-webkit-scrollbar { display: none; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+button, a { touch-action: manipulation; }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--color-forest); outline-offset: 4px; }
+::selection { background: var(--color-soft-green); color: var(--color-forest); }
+.nav-link { position: relative; padding-block: 12px; }
+.nav-link::after { position: absolute; content: ""; bottom: 4px; left: 0; width: 0; height: 1px; background: currentColor; transition: width 200ms ease; }
+.nav-link:hover::after { width: 100%; }
+.cart-dialog[open] { animation: drawer-in 250ms ease-out; }
+.cart-dialog { padding-top: var(--store-safe-top); }
+.cart-dialog::backdrop { background: rgb(20 30 24 / 40%); backdrop-filter: blur(2px); }
+@keyframes drawer-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
+.figma-custom-code-fragment { display: contents; }
+.figma-bypass-link { position: fixed; top: 8px; left: 8px; z-index: 100; transform: translateY(-150%); border-radius: 4px; background: var(--color-forest); color: white; padding: 12px 16px; }
+.figma-bypass-link:focus { transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+select {
+  color-scheme: light;
+}
+select option {
+  background-color: #ffffff;
+  color: #1c1c19;
+}
